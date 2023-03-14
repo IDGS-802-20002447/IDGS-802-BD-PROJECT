@@ -1,0 +1,45 @@
+{% extends "layout1.html"%}
+{%block content1%}
+{%from "_macros.html" import render_field%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <a href="/agregar" class="btn btn-success">
+                <i class="icon-pencil icon-white"></i>Agregar
+            </a>
+        </div>
+        <h3 style="text-align: center;">Alumnos IDGS802</h3>
+        <br><br>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="tr-head">
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for alum in alumnos%}
+                <tr>
+
+                    <td>{{alum.nombre}}</td>
+                    <td>{{alum.apellidos}}</td>
+                    <td>{{alum.email}}</td>
+                    <td><a href="eliminar?id={{alum.id}}" class="btn btn-danger">
+                            <i class="icon-remove icon-white"></i>Eliminar
+                        </a>
+                    </td>
+                    <td><a href="modificar?id={{alum.id}}" class="btn btn-warning">
+                            <i class="icon-pencil icon-white"></i>Modificar
+                        </a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

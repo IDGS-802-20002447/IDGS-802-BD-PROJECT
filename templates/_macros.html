@@ -1,0 +1,87 @@
+{% macro render_input(name,placeholder,type="text") %}
+<div class="control-group">
+    <label for="{{name}}" class="control-label">{{placeholder}}</label>
+    <div class="controls">
+        <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" value="">
+    </div>
+</div>
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
+{% endmacro %}
+
+{% macro render_field(field) %}
+<div class="control-group">
+    <div class="controls">
+        {{field.label}}
+        {{field(**kwargs)|safe}}
+    </div>
+</div>
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
+{% endmacro %}
+
+'''
+*args
+name='datos'
+type=txt
+**kwargs
+def suma(**kwargs):
+return args[0]+argas[1]
+suma(1,2)
+suma(1,2,3)
+suma(1,2,3,4)
+'''
+{% macro render_inputTable(lista) %}
+    {%for item in lista:%}
+        {%if item=='0':%}
+            <td style="background-color:black; text-align: center; color: whitesmoke">Negro</td>
+        {%endif%}
+        {%if item=='1':%}
+            <td style="background-color:brown; text-align: center;">Marron</td>
+        {%endif%}
+        {%if item=='2':%}
+            <td style="background-color:red; text-align: center;">Rojo</td>
+        {%endif%}
+        {%if item=='3':%}
+            <td style="background-color: orangered; text-align: center;">Naranja</td>
+        {%endif%}
+        {%if item=='4':%}
+            <td style="background-color:yellow; text-align: center;">Amarillo</td>
+        {%endif%}
+        {%if item=='5':%}
+            <td style="background-color:green; text-align: center;">Verde</td>
+        {%endif%}
+        {%if item=='6':%}
+            <td style="background-color:blue; text-align: center;">Azul</td>
+        {%endif%}
+        {%if item=='7':%}
+            <td style="background-color:violet; text-align: center;">Violeta</td>
+        {%endif%}
+        {%if item=='8':%}
+            <td style="background-color:gray; text-align: center;">Gris</td>
+        {%endif%}
+        {%if item=='9':%}
+            <td style="background-color:white; text-align: center;">Blanco</td>
+        {%endif%}
+        {%if item=='10':%}
+            <td style="background-color:goldenrod; text-align: center;">Dorado</td>
+        {%endif%}
+        {%if item=='11':%}
+            <td style="background-color:silver; text-align: center;">Plateado</td>
+        {%endif%}
+    {%endfor%}
+{% endmacro %}
